@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sigorta Sözlük</string>
+    <string name="question_text">Bu bir örnek sorudur. Doğru cevap hangisidir?</string>
+    <string name="option_1">Seçenek 1</string>
+    <string name="option_2">Seçenek 2</string>
+    <string name="option_3">Seçenek 3</string>
+    <string name="option_4">Seçenek 4</string>
+    <string name="score_text">Skor: 0</string>
+    <string name="correct_answer">Doğru cevap!</string>
+    <string name="wrong_answer">Yanlış cevap!</string>
+</resources>
