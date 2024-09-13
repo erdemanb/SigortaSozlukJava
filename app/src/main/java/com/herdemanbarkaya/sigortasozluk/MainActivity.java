@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DBHelper dbHelper; // DBHelper örneği
+    private DBHelper dbHelper; // DBHelper çağrılması
     private String correctAnswer; // Doğru cevabı saklamak için
     private int score = 0; // Skoru saklamak için
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Button option3Button = findViewById(R.id.option3Button);
         Button option4Button = findViewById(R.id.option4Button);
 
-        // Butonlara tıklama dinleyicileri ekleyin
+        // Butonlara tıklama dinleyicilerin eklenmesi
         option1Button.setOnClickListener(v -> handleButtonClick(option1Button.getText().toString()));
         option2Button.setOnClickListener(v -> handleButtonClick(option2Button.getText().toString()));
         option3Button.setOnClickListener(v -> handleButtonClick(option3Button.getText().toString()));
