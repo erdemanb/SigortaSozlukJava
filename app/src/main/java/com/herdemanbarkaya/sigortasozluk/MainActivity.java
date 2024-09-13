@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             loadQuestion(); // Yeni soru yükle
         } else {
             // Yanlış cevap
-            // Uyarı veya tekrar deneme işlemleri
+            Toast.makeText(this, "Yanlış cevap, tekrar deneyin!", Toast.LENGTH_SHORT).show();
         }
         updateScore(); // Skoru güncelle
     }
@@ -119,6 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateScore() {
         TextView scoreTextView = findViewById(R.id.tvScore);
-        scoreTextView.setText("Score: " + score);
+        scoreTextView.setText("Skor: " + score);
     }
 }
