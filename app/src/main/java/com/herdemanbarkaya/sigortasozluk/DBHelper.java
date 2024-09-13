@@ -21,23 +21,21 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Kelimeler tablosunu oluştur
+        // Kelimeler tablosunun oluşturulması
         db.execSQL("CREATE TABLE Words(id INTEGER PRIMARY KEY AUTOINCREMENT, word TEXT, meaning TEXT, isCorrect INTEGER)");
-        // Başlangıç verilerini ekleyin
+        // Başlangıç verilerinin eklenmesi
         insertInitialData(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Tabloyu güncelleyin veya yeniden oluşturun
+        // Tablonun güncellenmesi veya yeniden oluşturulması
         db.execSQL("DROP TABLE IF EXISTS Words");
         onCreate(db);
     }
 
     private void insertInitialData(SQLiteDatabase db) {
-
-
-        // Kelimeleri ekleyin
+        // Kelimelerin eklenmesi
         insertWord(db, "Poliçe", "Sigorta sözleşmesi", 0);
         insertWord(db, "Prim", "Sigorta için ödenen ücret", 0);
         insertWord(db, "Tazminat", "Zararın karşılanması için yapılan ödeme", 0);

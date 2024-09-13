@@ -21,12 +21,12 @@ public class SplashActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
 
-        // Splash ekranının 2 saniye boyunca görünmesi için gecikme ekleyin
+        // Splash ekranının 2 saniye boyunca görünmesi için gecikme eklenmesi
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            // 2 saniye sonra başka bir aktiviteye geçiş yapın
+            // 2 saniye sonra başka bir aktiviteye geçiş yapılması
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
-            finish(); // Bu aktiviteyi kapat
+            finish(); // Bu aktivitenin kapatılması
         }, SPLASH_SCREEN_DELAY);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // DBHelper örneğini oluşturun
+        // DBHelper örneğinin oluşturulması
         dbHelper = new DBHelper(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Soruları yükle
+        // Soruların yüklenmesi
         loadQuestion();
 
         Button option1Button = findViewById(R.id.option1Button);
@@ -67,18 +67,18 @@ public class MainActivity extends AppCompatActivity {
     private void loadQuestion() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Rastgele bir kelime seçin
+        // Rastgele bir kelime seçilmesi
         Cursor cursor = db.rawQuery("SELECT id, word, meaning FROM Words ORDER BY RANDOM() LIMIT 1", null);
         if (cursor.moveToFirst()) {
             long wordId = cursor.getLong(cursor.getColumnIndex("id"));
             correctAnswer = cursor.getString(cursor.getColumnIndex("word")); // Doğru cevabı sakla
             String meaning = cursor.getString(cursor.getColumnIndex("meaning"));
 
-            // Anlam cümlesini UI'ye yerleştirin
+            // Anlam cümlesininin UI'a yerleştirilmesi
             TextView meaningTextView = findViewById(R.id.meaningTextView);
             meaningTextView.setText(meaning);
 
-            // 4 seçenekli butonlar için verileri oluşturun
+            // 4 seçenekli butonlar için verilerin oluşturulması
             loadOptions(wordId);
         }
         cursor.close();
@@ -88,24 +88,24 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         List<String> options = new ArrayList<>();
 
-        // Doğru seçeneği ekleyin
+        // Doğru seçeneğin eklenmesi
         Cursor cursor = db.rawQuery("SELECT word FROM Words WHERE id = ?", new String[]{String.valueOf(correctWordId)});
         if (cursor.moveToFirst()) {
             options.add(cursor.getString(cursor.getColumnIndex("word")));
         }
         cursor.close();
 
-        // Yanlış seçenekler ekleyin
+        // Yanlış seçeneklerin eklenmesi
         cursor = db.rawQuery("SELECT word FROM Words WHERE id != ? ORDER BY RANDOM() LIMIT 3", new String[]{String.valueOf(correctWordId)});
         while (cursor.moveToNext()) {
             options.add(cursor.getString(cursor.getColumnIndex("word")));
         }
         cursor.close();
 
-        // Seçenekleri karıştırın
+        // Seçeneklerin karıştırılması
         Collections.shuffle(options);
 
-        // Butonları güncelleyin
+        // Butonların güncellenmesi
         Button option1Button = findViewById(R.id.option1Button);
         Button option2Button = findViewById(R.id.option2Button);
         Button option3Button = findViewById(R.id.option3Button);
