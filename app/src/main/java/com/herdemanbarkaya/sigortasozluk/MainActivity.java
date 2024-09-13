@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             score += 10; // Skoru artır
             loadQuestion(); // Yeni soru yükle
         } else {
-            // Yanlış cevap
+            // Yanlış cevap, toast mesajı verilecek
             Toast.makeText(this, "Yanlış cevap, tekrar deneyin!", Toast.LENGTH_SHORT).show();
         }
         updateScore(); // Skoru güncelle
